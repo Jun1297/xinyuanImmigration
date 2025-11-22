@@ -1,506 +1,825 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Xinyuan Immigration 昕垣移民 | Singapore Visa Experts</title>
-    <meta name="description" content="Professional Singapore immigration services. 专业新加坡移民服务.">
-    <meta property="og:title" content="Xinyuan Immigration 昕垣移民 | Singapore Visa Experts">
-    <meta property="og:description" content="98% Success Rate. Professional EP, PR, and Business Relocation Services. 专业新加坡移民服务。">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=2552&auto=format&fit=crop"> 
-    <meta property="og:url" content="https://your-website-name.pages.dev">
-    <meta property="og:type" content="website">
-    
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    
+    <meta
+      name="description"
+      content="Professional Singapore immigration services. 专业新加坡移民服务."
+    />
+    <meta
+      property="og:title"
+      content="Xinyuan Immigration 昕垣移民 | Singapore Visa Experts"
+    />
+    <meta
+      property="og:description"
+      content="98% Success Rate. Professional EP, PR, and Business Relocation Services. 专业新加坡移民服务。"
+    />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=2552&auto=format&fit=crop"
+    />
+    <meta property="og:url" content="https://your-website-name.pages.dev" />
+    <meta property="og:type" content="website" />
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+    ></script>
+
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
-        html { scroll-behavior: smooth; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft YaHei", "SimHei", sans-serif; }
-        
-        /* Custom Animations */
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
-        
-        /* Hero Background */
-        .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=2552&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-    </style>
-</head>
-<body class="font-sans text-gray-800 bg-gray-50">
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, "Microsoft YaHei", "SimHei", sans-serif;
+      }
 
+      /* Custom Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.8s ease-out forwards;
+      }
+
+      /* Hero Background */
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.7)
+          ),
+          url("https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=2552&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+    </style>
+  </head>
+  <body class="font-sans text-gray-800 bg-gray-50">
     <div id="root"></div>
 
     <script type="text/babel">
-        const { useState, useEffect } = React;
+      const { useState, useEffect } = React;
 
-        // --- DATA & CONTENT ---
-        const steps = [
-            { step: "01", title: "Profile Assessment", titleCn: "个人背景评估", desc: "We analyze your background against current MOM criteria.", descCn: "根据人力部最新标准深度分析您的背景。" },
-            { step: "02", title: "Document Optimization", titleCn: "申请材料优化", desc: "We polish your CV and testimonials to stand out.", descCn: "润色简历与推荐信，突出您的优势。" },
-            { step: "03", title: "Submission Strategy", titleCn: "递交策略制定", desc: "Submitted via the correct channels for high success.", descCn: "选择最佳申请通道，提高获批率。" },
-            { step: "04", title: "Approval & Relocation", titleCn: "获批与安家", desc: "We handle formalities and guide your move.", descCn: "处理领证手续，协助您顺利安家。" }
-        ];
+      // --- DATA & CONTENT ---
+      const steps = [
+        {
+          step: "01",
+          title: "Profile Assessment",
+          titleCn: "个人背景评估",
+          desc: "We analyze your background against current MOM criteria.",
+          descCn: "根据人力部最新标准深度分析您的背景。",
+        },
+        {
+          step: "02",
+          title: "Document Optimization",
+          titleCn: "申请材料优化",
+          desc: "We polish your CV and testimonials to stand out.",
+          descCn: "润色简历与推荐信，突出您的优势。",
+        },
+        {
+          step: "03",
+          title: "Submission Strategy",
+          titleCn: "递交策略制定",
+          desc: "Submitted via the correct channels for high success.",
+          descCn: "选择最佳申请通道，提高获批率。",
+        },
+        {
+          step: "04",
+          title: "Approval & Relocation",
+          titleCn: "获批与安家",
+          desc: "We handle formalities and guide your move.",
+          descCn: "处理领证手续，协助您顺利安家。",
+        },
+      ];
 
-        const faqs = [
-              {
-                q: "What are the different types of work passes in Singapore?",
-                qCn: "新加坡有哪些不同类型的工作准证？",
-                a: "Common long-term work passes include: Employment Pass (EP) for professionals, S Pass for mid-skilled staff, and Work Permit (WP) for semi-skilled or lower-skilled workers. There are also other passes such as Personalized Employment Pass (PEP) and Training Pass (TP).",
-                aCn: "常见长期工作准证包括：就业准证 (EP) 针对专业人士，S 准证针对中级技术人员，工作准证 (WP) 适用于半技术或低技能劳工。另外还有个性化就业准证 (PEP)、培训准证 (TP) 等。"
-              },
-              {
-                q: "What is the minimum monthly salary requirement for S Pass?",
-                qCn: "S 准证 (S Pass) 的最低月薪要求是多少？",
-                a: "As of 2025, the S Pass minimum salary requirement is S$3,150 per month. ",
-                aCn: "截至 2025 年，S 准证的最低月薪要求是 S$3,150。"
-              },
-              {
-                q: "Can I bring my family to Singapore on my work pass?",
-                qCn: "我能带家人到新加坡吗？",
-                a: "Yes — if you hold certain work passes (EP or S Pass) and meet income criteria, you can apply for Dependant’s Pass (DP) for your spouse and children.",
-                aCn: "可以 — 如果你持有某些工作准证（例如 EP 或 S Pass）并符合收入要求，你可以为配偶和子女申请亲属准证 (DP)。"
-              },
-              {
-                q: "How long is a Re-Entry Permit (REP) valid for a PR?",
-                qCn: "永久居民 (PR) 的再入境许可证 (REP) 有效期是多长？",
-                a: "Starting 1 December 2025, PRs will have a 180-day grace period to apply for or renew their REP if they are outside Singapore.",
-                aCn: "从 2025 年 12 月 1 日起，永久居民若身处境外并且 REP 已失效，将有 180 天宽限期来申请或更新该再入境许可证 (REP)。"
-              },
-              {
-                q: "How long is a Singapore Permanent Resident (PR) status valid before needing renewal?",
-                qCn: "新加坡永久居民 (PR) 的身份有效期是多久？",
-                a: "Permanent Resident status itself does not expire, but your Re-Entry Permit (REP) (which maintains your ability to re-enter Singapore) must be renewed periodically (typically every 5 years).",
-                aCn: "永久居民 (PR) 身份本身没有失效期，但你的 再入境许可证 (REP)（决定你可否重返新加坡） 需要定期续签 (通常是每 5 年)。"
-              },
-              {
-                q: "Does having an EP or S Pass guarantee PR approval?",
-                qCn: "持有就业准证 (EP) 或 S 准证 (S Pass) 是否保证 PR 批准？",
-                a: "No. Having a work pass (EP/S Pass) makes you eligible to apply for PR, but there is no guaranteed fast-track or automatic approval.",
-                aCn: "不保证。虽然持有 EP 或 S Pass 使你有资格申请永久居民 (PR)，但并 没有保证快速通道或自动批准。 "
-              },
-              {
-                q: "How long does it take to process a PR application?",
-                qCn: "申请永久居民 (PR) 需要多长时间？",
-                a: "Processing for a PR application can take several months, depending on your pass type (e.g., EP, S Pass), employment history, and other supporting documentation.",
-                aCn: "PR 申请处理时间通常为 几个月，具体取决于你的准证类型 (例如 EP 或 S Pass)、工作历史和提交的其他证明文件。"
-              },
-              {
-                q: "Can I appeal if my PR application is rejected?",
-                qCn: "如果我的永久居民 (PR) 申请被拒签，我可以上诉吗？",
-                a: "PR applications are assessed at the discretion of ICA, and there is no formal appeal process for a rejected PR application.",
-                aCn: "永久居民 (PR) 的申请由 ICA 自主审查，被拒签后 没有正式的上诉程序。"
-              }
-        ];
+      const faqs = [
+        {
+          q: "What are the different types of work passes in Singapore?",
+          qCn: "新加坡有哪些不同类型的工作准证？",
+          a: "Common long-term work passes include: Employment Pass (EP) for professionals, S Pass for mid-skilled staff, and Work Permit (WP) for semi-skilled or lower-skilled workers. There are also other passes such as Personalized Employment Pass (PEP) and Training Pass (TP).",
+          aCn: "常见长期工作准证包括：就业准证 (EP) 针对专业人士，S 准证针对中级技术人员，工作准证 (WP) 适用于半技术或低技能劳工。另外还有个性化就业准证 (PEP)、培训准证 (TP) 等。",
+        },
+        {
+          q: "What is the minimum monthly salary requirement for S Pass?",
+          qCn: "S 准证 (S Pass) 的最低月薪要求是多少？",
+          a: "As of 2025, the S Pass minimum salary requirement is S$3,150 per month. ",
+          aCn: "截至 2025 年，S 准证的最低月薪要求是 S$3,150。",
+        },
+        {
+          q: "Can I bring my family to Singapore on my work pass?",
+          qCn: "我能带家人到新加坡吗？",
+          a: "Yes — if you hold certain work passes (EP or S Pass) and meet income criteria, you can apply for Dependant’s Pass (DP) for your spouse and children.",
+          aCn: "可以 — 如果你持有某些工作准证（例如 EP 或 S Pass）并符合收入要求，你可以为配偶和子女申请亲属准证 (DP)。",
+        },
+        {
+          q: "How long is a Re-Entry Permit (REP) valid for a PR?",
+          qCn: "永久居民 (PR) 的再入境许可证 (REP) 有效期是多长？",
+          a: "Starting 1 December 2025, PRs will have a 180-day grace period to apply for or renew their REP if they are outside Singapore.",
+          aCn: "从 2025 年 12 月 1 日起，永久居民若身处境外并且 REP 已失效，将有 180 天宽限期来申请或更新该再入境许可证 (REP)。",
+        },
+        {
+          q: "How long is a Singapore Permanent Resident (PR) status valid before needing renewal?",
+          qCn: "新加坡永久居民 (PR) 的身份有效期是多久？",
+          a: "Permanent Resident status itself does not expire, but your Re-Entry Permit (REP) (which maintains your ability to re-enter Singapore) must be renewed periodically (typically every 5 years).",
+          aCn: "永久居民 (PR) 身份本身没有失效期，但你的 再入境许可证 (REP)（决定你可否重返新加坡） 需要定期续签 (通常是每 5 年)。",
+        },
+        {
+          q: "Does having an EP or S Pass guarantee PR approval?",
+          qCn: "持有就业准证 (EP) 或 S 准证 (S Pass) 是否保证 PR 批准？",
+          a: "No. Having a work pass (EP/S Pass) makes you eligible to apply for PR, but there is no guaranteed fast-track or automatic approval.",
+          aCn: "不保证。虽然持有 EP 或 S Pass 使你有资格申请永久居民 (PR)，但并 没有保证快速通道或自动批准。 ",
+        },
+        {
+          q: "How long does it take to process a PR application?",
+          qCn: "申请永久居民 (PR) 需要多长时间？",
+          a: "Processing for a PR application can take several months, depending on your pass type (e.g., EP, S Pass), employment history, and other supporting documentation.",
+          aCn: "PR 申请处理时间通常为 几个月，具体取决于你的准证类型 (例如 EP 或 S Pass)、工作历史和提交的其他证明文件。",
+        },
+        {
+          q: "Can I appeal if my PR application is rejected?",
+          qCn: "如果我的永久居民 (PR) 申请被拒签，我可以上诉吗？",
+          a: "PR applications are assessed at the discretion of ICA, and there is no formal appeal process for a rejected PR application.",
+          aCn: "永久居民 (PR) 的申请由 ICA 自主审查，被拒签后 没有正式的上诉程序。",
+        },
+      ];
 
-        const testimonials = [
-            { name: "Michael Ross", role: "FinTech Director / 金融科技总监", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop", text: "Approved in 5 weeks! Xinyuan team is incredibly professional.", textCn: "5周内获批！昕垣团队非常专业。" },
-            { name: "Wei Lin & Family", role: "Business Owners / 企业主", img: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1780&auto=format&fit=crop", text: "They handled our entire family's PR application perfectly.", textCn: "他们完美地处理了我们全家的 PR 申请。" },
-            { name: "Ms. Chen", role: "Software Engineer / 软件工程师", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop", text: "Transparent pricing and responsive WeChat support.", textCn: "价格透明，微信客服响应非常快。" }
-        ];
+      const testimonials = [
+        {
+          name: "Michael Ross",
+          role: "FinTech Director / 金融科技总监",
+          img: "./michael_ross.png",
+          text: "Approved in 5 weeks! Xinyuan team is incredibly professional.",
+          textCn: "5周内获批！昕垣团队非常专业。",
+        },
+        {
+          name: "Wei Lin & Family",
+          role: "Business Owners / 企业主",
+          img: "./wei_lin.png",
+          text: "They handled our entire family's PR application perfectly.",
+          textCn: "他们完美地处理了我们全家的 PR 申请。",
+        },
+        {
+          name: "Ms. Chen",
+          role: "Software Engineer / 软件工程师",
+          img: "ms_chen.png",
+          text: "Transparent pricing and responsive WeChat support.",
+          textCn: "价格透明，微信客服响应非常快。",
+        },
+      ];
 
-        // --- COMPONENTS ---
+      // --- COMPONENTS ---
 
-        const Navbar = () => {
-            const [scrolled, setScrolled] = useState(false);
-            const [mobileMenu, setMobileMenu] = useState(false);
+      const Navbar = () => {
+        const [scrolled, setScrolled] = useState(false);
+        const [mobileMenu, setMobileMenu] = useState(false);
 
-            useEffect(() => {
-                const handleScroll = () => setScrolled(window.scrollY > 20);
-                window.addEventListener('scroll', handleScroll);
-                return () => window.removeEventListener('scroll', handleScroll);
-            }, []);
+        useEffect(() => {
+          const handleScroll = () => setScrolled(window.scrollY > 20);
+          window.addEventListener("scroll", handleScroll);
+          return () => window.removeEventListener("scroll", handleScroll);
+        }, []);
 
-            return (
-                <nav class={`fixed w-full z-40 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur shadow-md py-3' : 'bg-transparent py-5'}`}>
-                    <div class="container mx-auto px-6 flex justify-between items-center">
-                        <div class="flex items-center gap-2">
-                            <i class={`ph-fill ph-paper-plane-tilt text-3xl ${scrolled ? 'text-red-600' : 'text-white'}`}></i>
-                            <div>
-                                <div class={`font-bold text-xl leading-none tracking-tight ${scrolled ? 'text-gray-900' : 'text-white'}`}>
-                                    Xinyuan <span class="text-red-600">Immigration</span>
-                                </div>
-                                <div class={`text-xs ${scrolled ? 'text-gray-500' : 'text-gray-300'}`}>昕垣移民</div>
-                            </div>
-                        </div>
-                        
-                        <div class={`hidden md:flex space-x-8 text-sm font-medium ${scrolled ? 'text-gray-700' : 'text-white'}`}>
-                            <a href="#process" class="hover:text-red-500 text-center group">
-                                <span>Process</span><span class="block text-xs opacity-70 group-hover:text-red-500">流程</span>
-                            </a>
-                            <a href="#why-us" class="hover:text-red-500 text-center group">
-                                <span>Why Us</span><span class="block text-xs opacity-70 group-hover:text-red-500">优势</span>
-                            </a>
-                            <a href="#testimonials" class="hover:text-red-500 text-center group">
-                                <span>Stories</span><span class="block text-xs opacity-70 group-hover:text-red-500">案例</span>
-                            </a>
-                            <a href="#faq" class="hover:text-red-500 text-center group">
-                                <span>FAQ</span><span class="block text-xs opacity-70 group-hover:text-red-500">问答</span>
-                            </a>
-                        </div>
-
-                        <a href="#contact" class="hidden md:inline-block px-5 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition shadow-lg text-sm font-semibold text-center">
-                            Free Assessment
-                            <span class="block text-xs font-normal opacity-90">免费评估</span>
-                        </a>
-
-                        <button onClick={() => setMobileMenu(!mobileMenu)} class="md:hidden text-2xl text-red-600">
-                            <i class="ph ph-list"></i>
-                        </button>
-                    </div>
-                    
-                    {/* Mobile Menu */}
-                    {mobileMenu && (
-                        <div class="absolute top-full left-0 w-full bg-white shadow-xl border-t py-4 flex flex-col items-center space-y-4 md:hidden">
-                            <a href="#process" onClick={()=>setMobileMenu(false)} class="text-center">Process / 流程</a>
-                            <a href="#why-us" onClick={()=>setMobileMenu(false)} class="text-center">Why Us / 优势</a>
-                            <a href="#testimonials" onClick={()=>setMobileMenu(false)} class="text-center">Stories / 案例</a>
-                            <a href="#contact" onClick={()=>setMobileMenu(false)} class="text-red-600 font-bold text-center">Contact Us / 联系我们</a>
-                        </div>
-                    )}
-                </nav>
-            );
-        };
-
-        const Hero = () => (
-            <header class="hero-bg h-[90vh] flex items-center justify-center text-center text-white px-4 relative">
-                <div class="absolute inset-0 bg-black/50"></div>
-                <div class="max-w-4xl relative z-10 animate-fade-in">
-                    <span class="bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 inline-block">
-                        #1 Trusted Agency / 值得信赖的机构
-                    </span>
-                    <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-                        Your Gateway to Singapore Starts Here.<br/>
-                        <span class="text-2xl md:text-4xl font-normal block mt-2 text-gray-200">踏入新加坡，从这里开始。</span>
-                    </h1>
-                    <p class="text-lg md:text-xl mb-10 text-gray-300 max-w-2xl mx-auto">
-                       Navigate MOM regulations with confidence, backed by a proven 98% approval rate.
-                       凭借经过验证的 98% 获批成绩，助您自信应对人力部流程。
-                    </p>
-                    <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="#contact" class="px-8 py-3 bg-red-600 rounded-lg font-bold hover:bg-red-700 transition shadow-xl flex flex-col items-center justify-center">
-                            <span>Start Application <i class="ph-bold ph-arrow-right inline"></i></span>
-                            <span class="text-xs font-normal opacity-90">开始申请</span>
-                        </a>
-                        <a href="#process" class="px-8 py-3 bg-white/10 backdrop-blur text-white border border-white/30 rounded-lg font-bold hover:bg-white/20 transition flex flex-col items-center justify-center">
-                            <span>How It Works</span>
-                            <span class="text-xs font-normal opacity-90">了解流程</span>
-                        </a>
-                    </div>
+        return (
+          <nav
+            class={`fixed w-full z-40 transition-all duration-300 ${
+              scrolled
+                ? "bg-white/95 backdrop-blur shadow-md py-3"
+                : "bg-transparent py-5"
+            }`}
+          >
+            <div class="container mx-auto px-6 flex justify-between items-center">
+              <div class="flex items-center gap-2">
+                <i
+                  class={`ph-fill ph-paper-plane-tilt text-3xl ${
+                    scrolled ? "text-red-600" : "text-white"
+                  }`}
+                ></i>
+                <div>
+                  <div
+                    class={`font-bold text-xl leading-none tracking-tight ${
+                      scrolled ? "text-gray-900" : "text-white"
+                    }`}
+                  >
+                    Xinyuan <span class="text-red-600">Immigration</span>
+                  </div>
+                  <div
+                    class={`text-xs ${
+                      scrolled ? "text-gray-500" : "text-gray-300"
+                    }`}
+                  >
+                    昕垣移民
+                  </div>
                 </div>
-            </header>
-        );
+              </div>
 
-        const Process = () => (
-            <section id="process" class="py-20 px-6 bg-white">
-                <div class="container mx-auto">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl font-bold text-gray-900">Your Roadmap to Singapore</h2>
-                        <p class="text-xl text-gray-500 mt-1">移民新加坡的路线图</p>
-                    </div>
-                    <div class="grid md:grid-cols-4 gap-8">
-                        {steps.map((s, idx) => (
-                            <div key={idx} class="relative p-6 rounded-xl border border-gray-100 bg-gray-50 hover:shadow-lg transition duration-300 group">
-                                <div class="text-5xl font-black text-gray-200 absolute top-4 right-4 group-hover:text-red-100 transition">{s.step}</div>
-                                <div class="w-12 h-12 bg-red-600 text-white rounded-lg flex items-center justify-center text-xl font-bold mb-4 relative z-10">
-                                    <i class="ph-bold ph-check"></i>
-                                </div>
-                                <h3 class="text-lg font-bold text-gray-900 relative z-10">{s.title}</h3>
-                                <p class="text-sm font-semibold text-red-600 mb-2 relative z-10">{s.titleCn}</p>
-                                <p class="text-gray-600 text-sm relative z-10">{s.desc}</p>
-                                <p class="text-gray-500 text-xs mt-1 relative z-10">{s.descCn}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-        );
+              <div
+                class={`hidden md:flex space-x-8 text-sm font-medium ${
+                  scrolled ? "text-gray-700" : "text-white"
+                }`}
+              >
+                <a href="#process" class="hover:text-red-500 text-center group">
+                  <span>Process</span>
+                  <span class="block text-xs opacity-70 group-hover:text-red-500">
+                    流程
+                  </span>
+                </a>
+                <a href="#why-us" class="hover:text-red-500 text-center group">
+                  <span>Why Us</span>
+                  <span class="block text-xs opacity-70 group-hover:text-red-500">
+                    优势
+                  </span>
+                </a>
+                <a
+                  href="#testimonials"
+                  class="hover:text-red-500 text-center group"
+                >
+                  <span>Stories</span>
+                  <span class="block text-xs opacity-70 group-hover:text-red-500">
+                    案例
+                  </span>
+                </a>
+                <a href="#faq" class="hover:text-red-500 text-center group">
+                  <span>FAQ</span>
+                  <span class="block text-xs opacity-70 group-hover:text-red-500">
+                    问答
+                  </span>
+                </a>
+              </div>
 
-        // --- NEW MODIFIED SECTION: WHY US / SINGAPORE ---
-        const WhyUs = () => (
-            <section id="why-us" class="py-20 px-6 bg-gray-900 text-white">
-                <div class="container mx-auto">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Singapore & Our Value</h2>
-                        <p class="text-xl text-gray-400">为什么选择新加坡？我们如何助您脱颖而出？</p>
-                    </div>
+              <a
+                href="#contact"
+                class="hidden md:inline-block px-5 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition shadow-lg text-sm font-semibold text-center"
+              >
+                Free Assessment
+                <span class="block text-xs font-normal opacity-90">
+                  免费评估
+                </span>
+              </a>
 
-                    <div class="grid md:grid-cols-3 gap-8">
-                        {/* 1. Why Singapore */}
-                        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-600 transition duration-300 group">
-                            <div class="w-14 h-14 bg-red-600/20 text-red-500 rounded-lg flex items-center justify-center text-3xl mb-6 group-hover:bg-red-600 group-hover:text-white transition">
-                                <i class="ph-fill ph-globe-hemisphere-east"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">The Singapore Advantage</h3>
-                            <h4 class="text-sm text-gray-400 mb-4 font-medium">新加坡的得天独厚</h4>
-                            <p class="text-gray-300 text-sm leading-relaxed mb-2">
-                                Ranked #1 for political stability, safety, and ease of doing business. A gateway to Asia with a low corporate tax regime.
-                            </p>
-                            <p class="text-gray-300 text-sm leading-relaxed">
-                                政治稳定、治安环境与营商便利度全球第一。通往亚洲的金融门户，享受极具竞争力的低税收政策。
-                            </p>
-                        </div>
-
-                        {/* 2. What We Do */}
-                        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-600 transition duration-300 group">
-                            <div class="w-14 h-14 bg-red-600/20 text-red-500 rounded-lg flex items-center justify-center text-3xl mb-6 group-hover:bg-red-600 group-hover:text-white transition">
-                                <i class="ph-fill ph-handshake"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">Concierge Management</h3>
-                            <h4 class="text-sm text-gray-400 mb-4 font-medium">全案管家式服务</h4>
-                            <p class="text-gray-300 text-sm leading-relaxed mb-2">
-                                We are your strategic advisors. We handle employer liaisons, document translation, and navigate complex appeals if necessary.
-                            </p>
-                            <p class="text-gray-300 text-sm leading-relaxed">
-                                我们是您的战略顾问。从雇主联络、文件翻译到处理复杂的拒签上诉，我们全程为您保驾护航。
-                            </p>
-                        </div>
-
-                        {/* 3. How to Stand Out */}
-                        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-600 transition duration-300 group">
-                            <div class="w-14 h-14 bg-red-600/20 text-red-500 rounded-lg flex items-center justify-center text-3xl mb-6 group-hover:bg-red-600 group-hover:text-white transition">
-                                <i class="ph-fill ph-trend-up"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">The Winning Edge</h3>
-                            <h4 class="text-sm text-gray-400 mb-4 font-medium">如何脱颖而出</h4>
-                            <p class="text-gray-300 text-sm leading-relaxed mb-2">
-                                We align your profile with the COMPASS framework, highlighting niche skills and social integration potential to beat the quota.
-                            </p>
-                            <p class="text-gray-300 text-sm leading-relaxed">
-                                我们将您的履历与 COMPASS 框架精准对齐，通过挖掘紧缺技能与社会融合潜力，在激烈的配额竞争中胜出。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        );
-
-        const Testimonials = () => (
-            <section id="testimonials" class="py-20 px-6 bg-white">
-                <div class="container mx-auto">
-                    <h2 class="text-3xl font-bold text-center">Success Stories</h2>
-                    <p class="text-center text-xl text-gray-500 mb-12">成功案例</p>
-                    
-                    <div class="grid md:grid-cols-3 gap-8">
-                        {testimonials.map((t, idx) => (
-                            <div key={idx} class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:-translate-y-2 transition duration-300">
-                                <div class="flex items-center gap-4 mb-6">
-                                    <img src={t.img} alt={t.name} class="w-16 h-16 rounded-full object-cover border-2 border-red-100" />
-                                    <div>
-                                        <h4 class="font-bold text-gray-900">{t.name}</h4>
-                                        <p class="text-xs text-red-600 font-bold uppercase">{t.role}</p>
-                                    </div>
-                                </div>
-                                <p class="text-gray-800 italic leading-relaxed mb-2">"{t.text}"</p>
-                                <p class="text-gray-500 text-sm">"{t.textCn}"</p>
-                                <div class="flex text-yellow-400 mt-4 text-sm">
-                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-        );
-
-        const FAQ = () => {
-            const [open, setOpen] = useState(null);
-            const toggle = (i) => setOpen(open === i ? null : i);
-
-            return (
-                <section id="faq" class="py-20 px-6 bg-gray-50">
-                    <div class="container mx-auto max-w-3xl">
-                        <h2 class="text-3xl font-bold text-center mb-10">FAQ / 常见问题</h2>
-                        <div class="space-y-4">
-                            {faqs.map((item, idx) => (
-                                <div key={idx} class="bg-white rounded-lg shadow-sm overflow-hidden">
-                                    <button onClick={() => toggle(idx)} class="w-full flex justify-between items-center p-5 text-left focus:outline-none hover:bg-gray-50 transition">
-                                        <div>
-                                            <span class="font-semibold text-gray-900 block">{item.q}</span>
-                                            <span class="text-sm text-gray-500">{item.qCn}</span>
-                                        </div>
-                                        <i class={`ph-bold ph-caret-down transition-transform duration-300 ${open === idx ? 'rotate-180 text-red-600' : 'text-gray-400'}`}></i>
-                                    </button>
-                                    <div class={`transition-all duration-300 ease-in-out overflow-hidden ${open === idx ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                        <div class="p-5 pt-0 text-gray-700 text-sm border-t border-gray-100 mt-2">
-                                            <p class="mb-2">{item.a}</p>
-                                            <p class="text-gray-500">{item.aCn}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            );
-        };
-
-        const Contact = () => {
-            return (
-                <section id="contact" class="py-24 px-6 bg-white relative">
-                    <div class="container mx-auto max-w-4xl">
-                        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
-                            <div class="bg-gray-900 p-8 text-center">
-                                <h2 class="text-2xl font-bold text-white">Free Consultation / 免费咨询</h2>
-                                <p class="text-gray-400 text-sm mt-2">Your data is encrypted and confidential. <br/>您的资料将严格保密。</p>
-                            </div>
-                            <div class="p-8 md:p-12">
-                                <form action="https://formspree.io/f/xblbooel" method="POST" class="grid md:grid-cols-2 gap-6">
-                                    
-                                    <div class="col-span-2 md:col-span-1">
-                                        <label class="block text-sm font-bold text-gray-700 mb-1">Full Name / 姓名</label>
-                                        <input type="text" name="name" required placeholder="John Doe" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition" />
-                                    </div>
-                                    
-                                    <div class="col-span-2 md:col-span-1">
-                                        <label class="block text-sm font-bold text-gray-700 mb-1">WhatsApp / Phone / 电话</label>
-                                        <input type="tel" name="phone" required pattern="[0-9+\- ]{8,20}" placeholder="+65 9123 4567" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition" />
-                                    </div>
-
-                                    <div class="col-span-2">
-                                        <label class="block text-sm font-bold text-gray-700 mb-1">Email / 邮箱</label>
-                                        <input type="email" name="email" required placeholder="john@example.com" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition" />
-                                    </div>
-
-                                    <div class="col-span-2">
-                                        <label class="block text-sm font-bold text-gray-700 mb-1">Interest / 咨询项目</label>
-                                        <select name="interest" class="w-full p-3 rounded-lg border border-gray-300 bg-white focus:ring-2 focus:ring-red-500 outline-none">
-                                            <option>Employment Pass (EP) / 就业准证</option>
-                                            <option>Permanent Residency (PR) / 永久居民</option>
-                                            <option>S-Pass Application / S准证</option>
-                                            <option>Company Incorporation / 公司注册</option>
-                                            <option>Other / 其他</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-span-2">
-                                        <label class="block text-sm font-bold text-gray-700 mb-1">Message / 留言</label>
-                                        <textarea name="message" rows="3" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none transition"></textarea>
-                                    </div>
-
-                                    <div class="col-span-2">
-                                        <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-lg shadow-lg transition transform hover:-translate-y-1 flex flex-col items-center">
-                                            <span>Submit Enquiry</span>
-                                            <span class="text-xs font-normal opacity-90">提交咨询</span>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            );
-        };
-
-        const FloatingContact = () => {
-            const [open, setOpen] = useState(false);
-
-            return (
-                <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 group"
-                     onMouseEnter={() => setOpen(true)}
-                     onMouseLeave={() => setOpen(false)}>
-                    
-                    <div class={`flex flex-col gap-3 transition-all duration-300 ${open ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
-                        
-                        {/* WhatsApp */}
-                        <a href="https://wa.me/96128388" target="_blank" rel="noopener noreferrer" 
-                           class="flex items-center justify-end gap-2 bg-white text-gray-800 px-4 py-2 rounded-full shadow-lg hover:bg-gray-50 transition">
-                            <div class="text-right">
-                                <span class="block text-sm font-bold leading-none">WhatsApp</span>
-                                <span class="text-xs text-gray-500">Chat 聊天</span>
-                            </div>
-                            <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white shadow-md">
-                                <i class="ph-fill ph-whatsapp-logo text-xl"></i>
-                            </div>
-                        </a>
-
-                        {/* WeChat - CUSTOM QR LOGIC HERE */}
-                        <div class="relative flex items-center justify-end gap-2 cursor-pointer group/wechat">
-                            {/* QR Popover */}
-                            <div class="absolute bottom-0 right-14 w-40 bg-white p-2 rounded-lg shadow-xl hidden group-hover/wechat:block border border-gray-200">
-                                {/* CHANGE THE SRC LINK BELOW TO YOUR QR IMAGE URL */}
-                                <img src="./wechat_qr_code.jpg" alt="WeChat QR" class="w-full" />
-                                <p class="text-xs text-center mt-1 text-gray-600">Scan to Chat / 扫码咨询</p>
-                            </div>
-                            
-                            <div class="bg-white text-gray-800 px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
-                                <div class="text-right">
-                                    <span class="block text-sm font-bold leading-none">WeChat</span>
-                                    <span class="text-xs text-gray-500">微信</span>
-                                </div>
-                                <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white shadow-md">
-                                    <i class="ph-fill ph-wechat-logo text-xl"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button onClick={() => setOpen(!open)} 
-                            class="w-16 h-16 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-2xl flex items-center justify-center text-3xl transition-transform transform hover:scale-105">
-                        <i class={`ph-bold ${open ? 'ph-x' : 'ph-chat-dots'}`}></i>
-                    </button>
-                </div>
-            );
-        };
-
-        const Footer = () => (
-            <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
-                <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8 text-sm">
-                    <div class="md:col-span-2">
-                        <h3 class="font-bold text-xl mb-1">Xinyuan Immigration</h3>
-                        <h3 class="text-lg text-gray-400 mb-4">昕垣移民</h3>
-                        <p class="text-gray-400 max-w-sm">Your trusted partner for Singapore immigration. We simplify the complex so you can focus on your new life.</p>
-                        <p class="text-gray-500 text-xs mt-2 max-w-sm">您值得信赖的新加坡移民伙伴。我们将繁琐的流程简单化，让您可以专注于新生活。</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold mb-4 text-gray-300">Quick Links / 快速链接</h4>
-                        <ul class="space-y-2 text-gray-400">
-                            <li><a href="#process" class="hover:text-white">Process / 流程</a></li>
-                            <li><a href="#why-us" class="hover:text-white">Why Us / 优势</a></li>
-                            <li><a href="#faq" class="hover:text-white">FAQ / 问答</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-bold mb-4 text-gray-300">Contact / 联系</h4>
-                        <ul class="space-y-2 text-gray-400">
-                            <li>info@xinyuanimmigration.com</li>
-                            <li>+65 8812 8688</li>
-                            <li>3 Ang Mo Kio Street 62, #07-27 Singapore 569139</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="text-center text-gray-600 text-xs mt-12">
-                    &copy; 2025 Xinyuan Immigration 昕垣移民. All rights reserved.
-                </div>
-            </footer>
-        );
-
-        const App = () => (
-            <div class="antialiased selection:bg-red-100">
-                <Navbar />
-                <Hero />
-                <Process />
-                <WhyUs />
-                <Testimonials />
-                <FAQ />
-                <Contact />
-                <Footer />
-                <FloatingContact />
+              <button
+                onClick={() => setMobileMenu(!mobileMenu)}
+                class="md:hidden text-2xl text-red-600"
+              >
+                <i class="ph ph-list"></i>
+              </button>
             </div>
-        );
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
+            {/* Mobile Menu */}
+            {mobileMenu && (
+              <div class="absolute top-full left-0 w-full bg-white shadow-xl border-t py-4 flex flex-col items-center space-y-4 md:hidden">
+                <a
+                  href="#process"
+                  onClick={() => setMobileMenu(false)}
+                  class="text-center"
+                >
+                  Process / 流程
+                </a>
+                <a
+                  href="#why-us"
+                  onClick={() => setMobileMenu(false)}
+                  class="text-center"
+                >
+                  Why Us / 优势
+                </a>
+                <a
+                  href="#testimonials"
+                  onClick={() => setMobileMenu(false)}
+                  class="text-center"
+                >
+                  Stories / 案例
+                </a>
+                <a
+                  href="#contact"
+                  onClick={() => setMobileMenu(false)}
+                  class="text-red-600 font-bold text-center"
+                >
+                  Contact Us / 联系我们
+                </a>
+              </div>
+            )}
+          </nav>
+        );
+      };
+
+      const Hero = () => (
+        <header class="hero-bg h-[90vh] flex items-center justify-center text-center text-white px-4 relative">
+          <div class="absolute inset-0 bg-black/50"></div>
+          <div class="max-w-4xl relative z-10 animate-fade-in">
+            <span class="bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 inline-block">
+              #1 Trusted Agency / 值得信赖的机构
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+              Your Gateway to Singapore Starts Here.
+              <br />
+              <span class="text-2xl md:text-4xl font-normal block mt-2 text-gray-200">
+                踏入新加坡，从这里开始。
+              </span>
+            </h1>
+            <p class="text-lg md:text-xl mb-10 text-gray-300 max-w-2xl mx-auto">
+              Navigate MOM regulations with confidence, backed by a proven 98%
+              approval rate. 凭借经过验证的 98%
+              获批成绩，助您自信应对人力部流程。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+              <a
+                href="#contact"
+                class="px-8 py-3 bg-red-600 rounded-lg font-bold hover:bg-red-700 transition shadow-xl flex flex-col items-center justify-center"
+              >
+                <span>
+                  Start Application{" "}
+                  <i class="ph-bold ph-arrow-right inline"></i>
+                </span>
+                <span class="text-xs font-normal opacity-90">开始申请</span>
+              </a>
+              <a
+                href="#process"
+                class="px-8 py-3 bg-white/10 backdrop-blur text-white border border-white/30 rounded-lg font-bold hover:bg-white/20 transition flex flex-col items-center justify-center"
+              >
+                <span>How It Works</span>
+                <span class="text-xs font-normal opacity-90">了解流程</span>
+              </a>
+            </div>
+          </div>
+        </header>
+      );
+
+      const Process = () => (
+        <section id="process" class="py-20 px-6 bg-white">
+          <div class="container mx-auto">
+            <div class="text-center mb-16">
+              <h2 class="text-3xl font-bold text-gray-900">
+                Your Roadmap to Singapore
+              </h2>
+              <p class="text-xl text-gray-500 mt-1">移民新加坡的路线图</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8">
+              {steps.map((s, idx) => (
+                <div
+                  key={idx}
+                  class="relative p-6 rounded-xl border border-gray-100 bg-gray-50 hover:shadow-lg transition duration-300 group"
+                >
+                  <div class="text-5xl font-black text-gray-200 absolute top-4 right-4 group-hover:text-red-100 transition">
+                    {s.step}
+                  </div>
+                  <div class="w-12 h-12 bg-red-600 text-white rounded-lg flex items-center justify-center text-xl font-bold mb-4 relative z-10">
+                    <i class="ph-bold ph-check"></i>
+                  </div>
+                  <h3 class="text-lg font-bold text-gray-900 relative z-10">
+                    {s.title}
+                  </h3>
+                  <p class="text-sm font-semibold text-red-600 mb-2 relative z-10">
+                    {s.titleCn}
+                  </p>
+                  <p class="text-gray-600 text-sm relative z-10">{s.desc}</p>
+                  <p class="text-gray-500 text-xs mt-1 relative z-10">
+                    {s.descCn}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+
+      // --- NEW MODIFIED SECTION: WHY US / SINGAPORE ---
+      const WhyUs = () => (
+        <section id="why-us" class="py-20 px-6 bg-gray-900 text-white">
+          <div class="container mx-auto">
+            <div class="text-center mb-16">
+              <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                Why Singapore & Our Value
+              </h2>
+              <p class="text-xl text-gray-400">
+                为什么选择新加坡？我们如何助您脱颖而出？
+              </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+              {/* 1. Why Singapore */}
+              <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-600 transition duration-300 group">
+                <div class="w-14 h-14 bg-red-600/20 text-red-500 rounded-lg flex items-center justify-center text-3xl mb-6 group-hover:bg-red-600 group-hover:text-white transition">
+                  <i class="ph-fill ph-globe-hemisphere-east"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">The Singapore Advantage</h3>
+                <h4 class="text-sm text-gray-400 mb-4 font-medium">
+                  新加坡的得天独厚
+                </h4>
+                <p class="text-gray-300 text-sm leading-relaxed mb-2">
+                  Ranked #1 for political stability, safety, and ease of doing
+                  business. A gateway to Asia with a low corporate tax regime.
+                </p>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  政治稳定、治安环境与营商便利度全球第一。通往亚洲的金融门户，享受极具竞争力的低税收政策。
+                </p>
+              </div>
+
+              {/* 2. What We Do */}
+              <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-600 transition duration-300 group">
+                <div class="w-14 h-14 bg-red-600/20 text-red-500 rounded-lg flex items-center justify-center text-3xl mb-6 group-hover:bg-red-600 group-hover:text-white transition">
+                  <i class="ph-fill ph-handshake"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Concierge Management</h3>
+                <h4 class="text-sm text-gray-400 mb-4 font-medium">
+                  全案管家式服务
+                </h4>
+                <p class="text-gray-300 text-sm leading-relaxed mb-2">
+                  We are your strategic advisors. We handle employer liaisons,
+                  document translation, and navigate complex appeals if
+                  necessary.
+                </p>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  我们是您的战略顾问。从雇主联络、文件翻译到处理复杂的拒签上诉，我们全程为您保驾护航。
+                </p>
+              </div>
+
+              {/* 3. How to Stand Out */}
+              <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-600 transition duration-300 group">
+                <div class="w-14 h-14 bg-red-600/20 text-red-500 rounded-lg flex items-center justify-center text-3xl mb-6 group-hover:bg-red-600 group-hover:text-white transition">
+                  <i class="ph-fill ph-trend-up"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">The Winning Edge</h3>
+                <h4 class="text-sm text-gray-400 mb-4 font-medium">
+                  如何脱颖而出
+                </h4>
+                <p class="text-gray-300 text-sm leading-relaxed mb-2">
+                  We align your profile with the COMPASS framework, highlighting
+                  niche skills and social integration potential to beat the
+                  quota.
+                </p>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  我们将您的履历与 COMPASS
+                  框架精准对齐，通过挖掘紧缺技能与社会融合潜力，在激烈的配额竞争中胜出。
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+
+      const Testimonials = () => (
+        <section id="testimonials" class="py-20 px-6 bg-white">
+          <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center">Success Stories</h2>
+            <p class="text-center text-xl text-gray-500 mb-12">成功案例</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+              {testimonials.map((t, idx) => (
+                <div
+                  key={idx}
+                  class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:-translate-y-2 transition duration-300"
+                >
+                  <div class="flex items-center gap-4 mb-6">
+                    <img
+                      src={t.img}
+                      alt={t.name}
+                      class="w-16 h-16 rounded-full object-cover border-2 border-red-100"
+                    />
+                    <div>
+                      <h4 class="font-bold text-gray-900">{t.name}</h4>
+                      <p class="text-xs text-red-600 font-bold uppercase">
+                        {t.role}
+                      </p>
+                    </div>
+                  </div>
+                  <p class="text-gray-800 italic leading-relaxed mb-2">
+                    "{t.text}"
+                  </p>
+                  <p class="text-gray-500 text-sm">"{t.textCn}"</p>
+                  <div class="flex text-yellow-400 mt-4 text-sm">
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+
+      const FAQ = () => {
+        const [open, setOpen] = useState(null);
+        const toggle = (i) => setOpen(open === i ? null : i);
+
+        return (
+          <section id="faq" class="py-20 px-6 bg-gray-50">
+            <div class="container mx-auto max-w-3xl">
+              <h2 class="text-3xl font-bold text-center mb-10">
+                FAQ / 常见问题
+              </h2>
+              <div class="space-y-4">
+                {faqs.map((item, idx) => (
+                  <div
+                    key={idx}
+                    class="bg-white rounded-lg shadow-sm overflow-hidden"
+                  >
+                    <button
+                      onClick={() => toggle(idx)}
+                      class="w-full flex justify-between items-center p-5 text-left focus:outline-none hover:bg-gray-50 transition"
+                    >
+                      <div>
+                        <span class="font-semibold text-gray-900 block">
+                          {item.q}
+                        </span>
+                        <span class="text-sm text-gray-500">{item.qCn}</span>
+                      </div>
+                      <i
+                        class={`ph-bold ph-caret-down transition-transform duration-300 ${
+                          open === idx
+                            ? "rotate-180 text-red-600"
+                            : "text-gray-400"
+                        }`}
+                      ></i>
+                    </button>
+                    <div
+                      class={`transition-all duration-300 ease-in-out overflow-hidden ${
+                        open === idx
+                          ? "max-h-60 opacity-100"
+                          : "max-h-0 opacity-0"
+                      }`}
+                    >
+                      <div class="p-5 pt-0 text-gray-700 text-sm border-t border-gray-100 mt-2">
+                        <p class="mb-2">{item.a}</p>
+                        <p class="text-gray-500">{item.aCn}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      };
+
+      const Contact = () => {
+        return (
+          <section id="contact" class="py-24 px-6 bg-white relative">
+            <div class="container mx-auto max-w-4xl">
+              <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+                <div class="bg-gray-900 p-8 text-center">
+                  <h2 class="text-2xl font-bold text-white">
+                    Free Consultation / 免费咨询
+                  </h2>
+                  <p class="text-gray-400 text-sm mt-2">
+                    Your data is encrypted and confidential. <br />
+                    您的资料将严格保密。
+                  </p>
+                </div>
+                <div class="p-8 md:p-12">
+                  <form
+                    action="https://formspree.io/f/xblbooel"
+                    method="POST"
+                    class="grid md:grid-cols-2 gap-6"
+                  >
+                    <div class="col-span-2 md:col-span-1">
+                      <label class="block text-sm font-bold text-gray-700 mb-1">
+                        Full Name / 姓名
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        placeholder="John Doe"
+                        class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition"
+                      />
+                    </div>
+
+                    <div class="col-span-2 md:col-span-1">
+                      <label class="block text-sm font-bold text-gray-700 mb-1">
+                        WhatsApp / Phone / 电话
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        required
+                        pattern="[0-9+\- ]{8,20}"
+                        placeholder="+65 9123 4567"
+                        class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition"
+                      />
+                    </div>
+
+                    <div class="col-span-2">
+                      <label class="block text-sm font-bold text-gray-700 mb-1">
+                        Email / 邮箱
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        placeholder="john@example.com"
+                        class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition"
+                      />
+                    </div>
+
+                    <div class="col-span-2">
+                      <label class="block text-sm font-bold text-gray-700 mb-1">
+                        Interest / 咨询项目
+                      </label>
+                      <select
+                        name="interest"
+                        class="w-full p-3 rounded-lg border border-gray-300 bg-white focus:ring-2 focus:ring-red-500 outline-none"
+                      >
+                        <option>Employment Pass (EP) / 就业准证</option>
+                        <option>Permanent Residency (PR) / 永久居民</option>
+                        <option>S-Pass Application / S准证</option>
+                        <option>Company Incorporation / 公司注册</option>
+                        <option>Other / 其他</option>
+                      </select>
+                    </div>
+
+                    <div class="col-span-2">
+                      <label class="block text-sm font-bold text-gray-700 mb-1">
+                        Message / 留言
+                      </label>
+                      <textarea
+                        name="message"
+                        rows="3"
+                        class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none transition"
+                      ></textarea>
+                    </div>
+
+                    <div class="col-span-2">
+                      <button
+                        type="submit"
+                        class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-lg shadow-lg transition transform hover:-translate-y-1 flex flex-col items-center"
+                      >
+                        <span>Submit Enquiry</span>
+                        <span class="text-xs font-normal opacity-90">
+                          提交咨询
+                        </span>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      };
+
+      const FloatingContact = () => {
+        const [open, setOpen] = useState(false);
+
+        return (
+          <div
+            class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 group"
+            onMouseEnter={() => setOpen(true)}
+            onMouseLeave={() => setOpen(false)}
+          >
+            <div
+              class={`flex flex-col gap-3 transition-all duration-300 ${
+                open
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10 pointer-events-none"
+              }`}
+            >
+              {/* WhatsApp */}
+              <a
+                href="https://wa.me/96128388"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-end gap-2 bg-white text-gray-800 px-4 py-2 rounded-full shadow-lg hover:bg-gray-50 transition"
+              >
+                <div class="text-right">
+                  <span class="block text-sm font-bold leading-none">
+                    WhatsApp
+                  </span>
+                  <span class="text-xs text-gray-500">Chat 聊天</span>
+                </div>
+                <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white shadow-md">
+                  <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                </div>
+              </a>
+
+              {/* WeChat - CUSTOM QR LOGIC HERE */}
+              <div class="relative flex items-center justify-end gap-2 cursor-pointer group/wechat">
+                {/* QR Popover */}
+                <div class="absolute bottom-0 right-14 w-40 bg-white p-2 rounded-lg shadow-xl hidden group-hover/wechat:block border border-gray-200">
+                  {/* CHANGE THE SRC LINK BELOW TO YOUR QR IMAGE URL */}
+                  <img
+                    src="./wechat_qr_code.jpg"
+                    alt="WeChat QR"
+                    class="w-full"
+                  />
+                  <p class="text-xs text-center mt-1 text-gray-600">
+                    Scan to Chat / 扫码咨询
+                  </p>
+                </div>
+
+                <div class="bg-white text-gray-800 px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
+                  <div class="text-right">
+                    <span class="block text-sm font-bold leading-none">
+                      WeChat
+                    </span>
+                    <span class="text-xs text-gray-500">微信</span>
+                  </div>
+                  <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white shadow-md">
+                    <i class="ph-fill ph-wechat-logo text-xl"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setOpen(!open)}
+              class="w-16 h-16 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-2xl flex items-center justify-center text-3xl transition-transform transform hover:scale-105"
+            >
+              <i class={`ph-bold ${open ? "ph-x" : "ph-chat-dots"}`}></i>
+            </button>
+          </div>
+        );
+      };
+
+      const Footer = () => (
+        <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
+          <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8 text-sm">
+            <div class="md:col-span-2">
+              <h3 class="font-bold text-xl mb-1">Xinyuan Immigration</h3>
+              <h3 class="text-lg text-gray-400 mb-4">昕垣移民</h3>
+              <p class="text-gray-400 max-w-sm">
+                Your trusted partner for Singapore immigration. We simplify the
+                complex so you can focus on your new life.
+              </p>
+              <p class="text-gray-500 text-xs mt-2 max-w-sm">
+                您值得信赖的新加坡移民伙伴。我们将繁琐的流程简单化，让您可以专注于新生活。
+              </p>
+            </div>
+            <div>
+              <h4 class="font-bold mb-4 text-gray-300">
+                Quick Links / 快速链接
+              </h4>
+              <ul class="space-y-2 text-gray-400">
+                <li>
+                  <a href="#process" class="hover:text-white">
+                    Process / 流程
+                  </a>
+                </li>
+                <li>
+                  <a href="#why-us" class="hover:text-white">
+                    Why Us / 优势
+                  </a>
+                </li>
+                <li>
+                  <a href="#faq" class="hover:text-white">
+                    FAQ / 问答
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold mb-4 text-gray-300">Contact / 联系</h4>
+              <ul class="space-y-2 text-gray-400">
+                <li>info@xinyuanimmigration.com</li>
+                <li>+65 8812 8688</li>
+                <li>3 Ang Mo Kio Street 62, #07-27 Singapore 569139</li>
+              </ul>
+            </div>
+          </div>
+          <div class="text-center text-gray-600 text-xs mt-12">
+            &copy; 2025 Xinyuan Immigration 昕垣移民. All rights reserved.
+          </div>
+        </footer>
+      );
+
+      const App = () => (
+        <div class="antialiased selection:bg-red-100">
+          <Navbar />
+          <Hero />
+          <Process />
+          <WhyUs />
+          <Testimonials />
+          <FAQ />
+          <Contact />
+          <Footer />
+          <FloatingContact />
+        </div>
+      );
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
     </script>
-</body>
+  </body>
 </html>
